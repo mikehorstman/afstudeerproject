@@ -1,0 +1,35 @@
+<app-rapport-onderdeel [templateRef]="template" [boundary]="boundary" [uniqueId]="this.uuid"></app-rapport-onderdeel>
+
+<ng-template #template>
+    <div (click)="onSelect($event,Onderdelen.legenda, this.styling)" (mousedown)="beforemove(this.uuid, Onderdelen.legenda, this.styling)"
+         class="legenda" id="legenda-onderdeel-{{uuid}}"
+         [ngSwitch]="standaardWeergave!.naam">
+        <div class="wrapper" *ngSwitchCase="'bolletjes'" id="bolletjes">
+            <div class="option" *ngFor="let option of cijferSchaal.opties">
+                <app-resultaten-weergave [option]="'bolletjes'" [result]="option.van"></app-resultaten-weergave>
+                <span>{{'= ' + option.tekst}}</span>
+            </div>
+        </div>
+
+        <div class="wrapper" *ngSwitchCase="'blokjes'" id="blokjes">
+            <div class="option" *ngFor="let option of cijferSchaal.opties">
+                <app-resultaten-weergave [option]="'blokjes'" [result]="option.van"></app-resultaten-weergave>
+                <span>{{'= ' + option.tekst}}</span>
+            </div>
+        </div>
+
+        <div class="wrapper" *ngSwitchCase="'smiley'" id="smileys">
+            <div class="option" *ngFor="let option of cijferSchaal.opties">
+                <app-resultaten-weergave [option]="'smiley'" [result]="option.van"></app-resultaten-weergave>
+                <span>{{' = ' + option.tekst}}</span>
+            </div>
+        </div>
+
+        <div class="wrapper" *ngSwitchCase="'grafiek'" id="progress-bar">
+            <div class="option" *ngFor="let option of cijferSchaal.opties">
+                <app-resultaten-weergave [option]="'grafiek'" [result]="option.van"></app-resultaten-weergave>
+                <span>{{'= ' + option.tekst}}</span>
+            </div>
+        </div>
+    </div>
+</ng-template>

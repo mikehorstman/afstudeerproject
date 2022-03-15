@@ -1,0 +1,16 @@
+<app-rapport-onderdeel [templateRef]="template" [boundary]="boundary" [uniqueId]="this.uuid"></app-rapport-onderdeel>
+
+<ng-template #template>
+    <div class="handtekening" id="handtekening-onderdeel-{{uuid}}" (mousedown)="beforemove(this.uuid, Onderdelen.handtekening, this.styling)"
+         (click)="onSelect($event,Onderdelen.handtekening, this.styling)">
+        <div id="header-{{uuid}}">
+        <span id="handtekening-label">
+            {{getValue('header', Customization.text)}}
+        </span>
+        </div>
+        <div class="body" id="body-{{uuid}}">
+            <div class="line" id="line-{{uuid}}"></div>
+        </div>
+    </div>
+</ng-template>
+

@@ -1,0 +1,20 @@
+.rubriek{
+    width: 500px;
+
+    .rubriek-header{
+        width: 100%;
+        background-color: #008800;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        margin-top: 12px;
+        padding : 4px 0 4px 16px;
+    }
+
+    .subrubriek {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin : 4px 0 4px 16px;
+        align-items: center;
+    }
+}

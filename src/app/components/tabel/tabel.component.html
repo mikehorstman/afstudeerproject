@@ -1,0 +1,31 @@
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource">
+    <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column.naam}}">
+        <div *ngIf="column.naam==='select'">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle(): null"
+                              [checked]="selection.hasValue() && isAllSelected()"
+                              [indeterminate]="selection.hasValue() && !isAllSelected()"
+                              [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? toggleRow(row) : null"
+                              [checked]="selection.isSelected(row)"
+                              [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+            </td>
+        </div>
+        <th mat-header-cell *matHeaderCellDef> {{column.naam}} </th>
+        <td mat-cell *matCellDef="let element"> {{getTableValue(element, column.value)}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="getColumns()"></tr>
+    <tr mat-row *matRowDef="let row; columns: getColumns();"
+        (click)="selection.toggle(row)"></tr>
+</table>

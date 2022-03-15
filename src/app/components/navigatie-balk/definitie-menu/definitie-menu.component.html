@@ -1,0 +1,3 @@
+<div class="body" *ngFor="let option of definitieForm">
+    <app-dynamisch-formulier (dataChanged)="saveRapportDefinitie($event, option.options)" [inputField]="option" [value]="getValue(option.key)"></app-dynamisch-formulier>
+</div>

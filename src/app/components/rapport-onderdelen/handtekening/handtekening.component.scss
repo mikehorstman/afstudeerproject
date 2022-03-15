@@ -1,0 +1,22 @@
+.handtekening {
+    width              : 250px;
+    height             : 60px;
+    font-size          : 12px;
+    padding            : 10px;
+    display            : grid;
+    grid-template-rows : 20px auto;
+    cursor             : move;
+    position           : relative;
+
+    .body {
+        display         : flex;
+        justify-content : flex-end;
+        flex-direction  : column;
+
+        .line {
+            height           : 1px;
+            background-color : #000000;
+            width            : 100%;
+        }
+    }
+}

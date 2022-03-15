@@ -1,0 +1,9 @@
+<div class="grid">
+    <mat-card [ngClass]="{'selected': this.selectedOnderdeel?.id === onderdeel.id}"
+              (click)="selectOnderdeel(onderdeel)"
+              *ngFor="let onderdeel of onderdelen"
+              id="{{onderdeel.title}}-item">{{onderdeel.title}}</mat-card>
+</div>
+
+
+

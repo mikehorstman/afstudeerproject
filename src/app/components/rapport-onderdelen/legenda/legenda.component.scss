@@ -1,0 +1,46 @@
+.legenda {
+    width    : 100%;
+    position : relative;
+    cursor   : move;
+    height   : auto;
+
+    .wrapper {
+        display               : grid;
+        grid-template-columns : repeat(5, 1fr);
+
+        .option {
+            display         : flex;
+            flex-direction  : row;
+            align-items     : center;
+            justify-content : center;
+
+            app-resultaten-weergave {
+                width : 50px;
+            }
+
+            span {
+                margin-left : 5px;
+            }
+
+            .circle {
+                border-radius    : 50%;
+                width            : 10px;
+                height           : 10px;
+                background-color : #0074D9;
+                margin-right     : 2px;
+            }
+
+            .block {
+                width            : 10px;
+                height           : 10px;
+                background-color : #0074D9;
+                margin-right     : 2px;
+            }
+        }
+    }
+}
+
+
+
+
+

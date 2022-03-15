@@ -1,0 +1,16 @@
+<app-rapport-onderdeel [templateRef]="template" [boundary]="boundary" [uniqueId]="this.uuid" [lockXAxis]="true"></app-rapport-onderdeel>
+
+    <ng-template #template>
+        <div class="definitie-onderdeel" id="definitie-onderdeel-{{uuid}}" (mousedown)="beforemove(this.uuid, Onderdelen.definitie, this.styling)"
+             (click)="onSelect($event, Onderdelen.definitie, this.styling)">
+            <div>
+                <span class=name-label *ngIf="isVisible('naam')" id="name-label-{{uuid}}">{{leerling}}</span>
+            </div>
+            <div>
+                <span class=leerjaar-label *ngIf="isVisible('leerjaar')" id="leerjaar-label-{{uuid}}">Groep {{definitie.leerjaar}}</span>
+            </div>
+            <div>
+                <span class=schooljaar-label *ngIf="isVisible('schooljaar')" id="schooljaar-label-{{uuid}}">Schooljaar {{definitie.schooljaar!.naam}}</span>
+            </div>
+        </div>
+    </ng-template>

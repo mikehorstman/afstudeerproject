@@ -1,0 +1,30 @@
+
+.grid {
+    display           : grid;
+    grid-auto-columns : auto;
+    grid-gap          : 10px;
+    margin-bottom     : 100px;
+
+    .mat-card {
+        height    : 80px;
+        font-size : 12px;
+        padding   : 8px;
+        cursor    : pointer;
+
+        &:hover {
+            transform : scale(1.02);
+        }
+
+        &.selected {
+            border : 2px solid #E8436E;
+        }
+    }
+}
+
+@media (min-width : 1500px) {
+    .grid {
+        grid-template-columns : repeat(2, 1fr);
+    }
+}
+
+

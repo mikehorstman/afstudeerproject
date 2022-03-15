@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h1 mat-dialog-title>RapportSubrubriek bewerken</h1>
+    <app-dynamisch-formulier (dataChanged)="editName($event)" [inputField]="inputField" [value]="data.subrubriek.naam"></app-dynamisch-formulier>
+    <h2 mat-dialog-title>Toetsonderdelen</h2>
+    <div class="buttons">
+        <button [mat-dialog-close]="data" class="green-button" type="button" mat-button>Opslaan</button>
+        <button [mat-dialog-close] type="button" mat-button>Annuleren</button>
+    </div>
+</div>
+<mat-dialog-content class="gekoppelde-onderdelen">
+    <span>Gekoppelde toetsonderdelen</span>
+    <app-tabel (selected)="onderdelenToOntkoppel=$event" [data]="data.subrubriek.toetsOnderdelen" [displayedColumns]="displayedColumns"></app-tabel>
+
+</mat-dialog-content>
+
+<mat-dialog-content>
+    <app-tabel (selected)="onderdelenToKoppel=$event" [data]="toetsOnderdelen" [displayedColumns]="displayedColumns"></app-tabel>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button [disabled]="onderdelenToOntkoppel.length===0" (click)="ontkoppelOnderdeel()" type="button" mat-button>Geselecteerde toetsonderdelen ontkoppelen</button>
+    <button [disabled]="onderdelenToKoppel.length===0" (click)="koppelOnderdeel()" type="button" mat-button>Geselecteerde toetsonderdelen koppelen</button>
+</mat-dialog-actions>

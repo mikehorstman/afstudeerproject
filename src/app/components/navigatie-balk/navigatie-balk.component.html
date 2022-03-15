@@ -1,0 +1,33 @@
+<div class="bar">
+    <div class="item logo" id="logo">
+        <img src="../../../assets/icons/parnassys-logo.svg" />
+    </div>
+
+    <div *ngFor="let tab of tabs">
+        <div class="item button" id="{{tab.item}}" (click)="switchTab(tab)" [ngClass]="{'selected': currentTab.item===tab.item, 'disabled': tab.disabled}">
+            <div [ngClass]="{'pointer': currentTab.item===tab.item}"></div>
+            <img src="assets/icons/{{tab.item}}.svg" />
+        </div>
+    </div>
+</div>
+<div class="content-container">
+    <div class="content">
+        <span id="tab-title">{{currentTab.title}}</span>
+        <div id="bottom-border"></div>
+
+        <div [ngSwitch]="currentTab">
+            <app-definitie-menu *ngSwitchCase="tabs[0]" id="definitie-form"></app-definitie-menu>
+            <app-onderdelen-menu *ngSwitchCase="tabs[1]" id="onderdelen-menu"></app-onderdelen-menu>
+            <app-rubrieken-menu *ngSwitchCase="tabs[2]" id="rubrieken-menu"></app-rubrieken-menu>
+        </div>
+
+        <button (click)="this.onderdelenMenu?.addSelectedOnderdeel()" *ngIf="currentTab===tabs[1]" id="add-onderdeel-button" type="button" mat-button>Toevoegen</button>
+        <button (click)="this.rubriekenMenu?.addRubriek()" *ngIf="currentTab===tabs[2]" id="add-rubriek-button" type="button" mat-button>Toevoegen</button>
+    </div>
+</div>
+
+
+
+
+
+

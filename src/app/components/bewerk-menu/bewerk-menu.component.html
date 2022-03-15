@@ -1,0 +1,12 @@
+<div class="edit-menu">
+    <div class="fields" *ngFor="let category of layout">
+        <div class="header">
+            <span id="title">{{category.title}}</span>
+        </div>
+        <div [style.grid-template-columns]="category.grid" class="grid">
+            <div class="body" *ngFor="let option of category.options">
+                <app-dynamisch-formulier (dataChanged)="onInput($event, category)" [inputField]="option" [value]="getValue(category.key,option.customization)"></app-dynamisch-formulier>
+            </div>
+        </div>
+    </div>
+</div>

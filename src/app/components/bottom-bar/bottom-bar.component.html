@@ -1,0 +1,26 @@
+<div class="bottom-bar">
+    <div class="wrapper left">
+        <div class="button" id="add-page" (click)="addPage(1)">+</div>
+        <span id="add-page-label" class="label">nieuwe pagina</span>
+    </div>
+
+    <div class="wrapper">
+        <img id="left-arrow" (click)="switchPage((page-1))" src="assets/icons/arrow_back.svg">
+
+        <span id="current-page-label" class="label">{{page}}/{{numberOfPages}}</span>
+        <img id="right-arrow" (click)="switchPage((page+1))" src="assets/icons/arrow_forward.svg">
+    </div>
+
+    <div class="wrapper right">
+        <img id="minus" (click)="zoomPage(zoomValue! - zoomStepAmount!)" src="assets/icons/sub.svg">
+        <mat-slider id="zoom-slider"
+                    [step]="zoomStepAmount"
+                    [min]="minimumZoomValue"
+                    [max]="maximumZoomValue"
+                    [value]="zoomValue"
+                    (input)="zoomPage($event.value)">
+        </mat-slider>
+        <img id="plus" (click)="zoomPage((zoomValue! + zoomStepAmount!))" src="assets/icons/add.svg">
+        <span id="zoom-label" class="label">{{zoomValue}}%</span>
+    </div>
+</div>

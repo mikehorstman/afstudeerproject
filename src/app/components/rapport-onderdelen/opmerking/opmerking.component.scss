@@ -1,0 +1,15 @@
+.opmerkingen-field {
+    width  : 450px;
+    cursor : move;
+    position: relative;
+
+    .header{
+        font-size: 24px;
+        padding: 12px;
+        border-bottom: #0074D9 solid 2px;
+    }
+
+    .body{
+        padding: 12px;
+    }
+}

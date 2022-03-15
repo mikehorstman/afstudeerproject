@@ -1,0 +1,14 @@
+<div *ngIf="templateRef && !lockXAxis" [ngClass]="{'selected': uniqueId === styleService.currentUuid}" cdkDrag (cdkDragEnded)="dropOnderdeel($event)" [cdkDragBoundary]="boundary">
+    <ng-container *ngTemplateOutlet="templateRef"></ng-container>
+    <div class="icon" (click)="removeComponent(uniqueId)">
+        <img src="../../../../assets/icons/delete.svg">
+    </div>
+</div>
+
+<div *ngIf="templateRef && lockXAxis" [ngClass]="{'selected': uniqueId === styleService.currentUuid}" cdkDrag (cdkDragEnded)="dropOnderdeel($event)" cdkDragLockAxis="x" [cdkDragBoundary]="boundary">
+    <ng-container *ngTemplateOutlet="templateRef"></ng-container>
+    <div class="icon" (click)="removeComponent(uniqueId)">
+        <img src="../../../../assets/icons/delete.svg">
+    </div>
+</div>
+

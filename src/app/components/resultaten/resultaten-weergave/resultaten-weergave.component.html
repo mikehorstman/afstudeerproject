@@ -1,0 +1,28 @@
+<div [ngSwitch]="option">
+    <div class="item" *ngSwitchCase="'grafiek'">
+        <div class="progress-bar">
+            <div class="progress" [style]="{'width':result*10+'%'}"></div>
+        </div>
+    </div>
+
+    <div class="item" *ngSwitchCase="'smiley'">
+        <div *ngFor="let optie of cijferSchaal.opties; let i = index">
+            <i *ngIf="result >= optie.van && result<=optie.tot" [class]="'fa fa-'+smileys[i]+'-o fa-2x'"></i>
+        </div>
+    </div>
+
+    <div class="item" *ngSwitchCase="'blokjes'">
+        <div *ngFor="let optie of cijferSchaal.opties; let i = index">
+            <div *ngIf="result >= optie.van && result<=optie.tot" class="block" [style]="{'backgroundColor':colors[i]}"></div>
+        </div>
+    </div>
+
+    <div class="item" *ngSwitchCase="'bolletjes'">
+        <div *ngFor="let optie of cijferSchaal.opties; let i = index">
+            <div *ngIf="result >= optie.van && result<=optie.tot" class="display">
+                <div *ngFor="let i of [].constructor(i+1)" class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,18 @@
+<div cdkDropListGroup class="rubriek-container">
+    <div *ngFor="let page of numberOfPages; index as i">
+        <div class="header">
+            <span>Pagina {{i + 1}}</span>
+        </div>
+        <div class="rubriek-list" cdkDropList (cdkDropListDropped)="drop($event, i)" [cdkDropListData]="definitie.rubrieken[i]">
+            <mat-card (click)="onClick($event, rubriek)" cdkDrag [ngClass]="{'disabled': rubriek.is_active === false}" class="rubriek" *ngFor="let rubriek of definitie.rubrieken[i]">
+                <span>{{rubriek.naam}}</span>
+                <img (click)="addSubRubriek(rubriek)" class="add-icon" src="../../../../assets/icons/add_black.svg">
+                <div *ngFor="let subrubriek of rubriek.subrubrieken" class="subrubriek">
+                    <span>{{subrubriek.naam}}</span>
+                    <img (click)="openDialog(subrubriek, rubriek, 'edit')" class="edit-icon" src="../../../../assets/icons/edit.svg">
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+

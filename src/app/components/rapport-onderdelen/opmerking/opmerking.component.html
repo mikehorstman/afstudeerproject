@@ -1,0 +1,17 @@
+<app-rapport-onderdeel [templateRef]="template" [boundary]="boundary" [uniqueId]="this.uuid"></app-rapport-onderdeel>
+
+<ng-template #template>
+    <div class="opmerkingen-field" id="opmerking-onderdeel-{{uuid}}" (mousedown)="beforemove(this.uuid, Onderdelen.opmerking, this.styling)"
+         (click)="onSelect($event,Onderdelen.opmerking, this.styling)">
+        <div class="header" id="header-{{uuid}}">
+        <span id="opmerking-title">
+            {{getValue('header', Customization.text)}}
+        </span>
+        </div>
+        <div class="body" id="body-{{uuid}}">
+        <span id="opmerking-text">
+            {{getValue('body', Customization.text)}}
+        </span>
+        </div>
+    </div>
+</ng-template>

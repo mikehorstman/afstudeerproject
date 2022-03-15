@@ -1,0 +1,10 @@
+<div class="rubriek">
+    <div class="rubriek-header" id="header-{{uuid}}" (click)="onSelect($event,Onderdelen.rubriek, this.styling, this.uuid)">
+        <span> {{getValue('header', Customization.text)}}</span>
+    </div>
+    <div *ngFor="let subrubriek of subrubrieken" class="subrubriek">
+        <span>{{subrubriek.naam}}</span>
+        <input matInput>
+        <app-resultaten-weergave [option]="standaardWeergave.naam" [result]="7"></app-resultaten-weergave>
+    </div>
+</div>

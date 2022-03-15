@@ -1,0 +1,12 @@
+<div id="rapport">
+    <div *ngFor="let page of pages; index as i">
+        <div [hidden]="(currentPage-1)!==i" class="rapport-page" id="{{'rapport-page-'+i}}" (click)="onSelect($event, Onderdelen.rapport, this.styling)">
+            <div class="inner-page" id="{{'inner-page-'+i}}">
+                <app-rubrieken-lijst></app-rubrieken-lijst>
+            </div>
+        </div>
+    </div>
+</div>
+<app-bottom-bar (zoomed)="zoomPage($event)"></app-bottom-bar>
+
+

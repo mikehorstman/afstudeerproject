@@ -1,0 +1,37 @@
+.edit-menu {
+    position         : fixed;
+    right            : 0;
+    width            : calc(60px + 15%);
+    height           : 100%;
+    background-color : var(--light-grey);
+    border-left      : #C7C7C7 solid 1px;
+    padding-top      : 60px;
+
+    .fields {
+        .header {
+            background-color : #E1E2E1;
+            height           : 48px;
+            border-bottom    : #C7C7C7 solid 2px;
+
+            span {
+                font-size      : 14px;
+                padding-left   : 12px;
+                padding-top    : 12px;
+                font-weight    : bolder;
+
+                line-height    : 48px;
+                vertical-align : middle;
+            }
+        }
+
+        .grid {
+            display  : grid;
+            grid-gap : 12px;
+            padding  : 12px;
+
+            .body {
+                height : 100%;
+            }
+        }
+    }
+}

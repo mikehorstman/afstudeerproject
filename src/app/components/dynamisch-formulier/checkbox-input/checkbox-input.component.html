@@ -1,0 +1,3 @@
+<section class="example-section" [formGroup]="group">
+    <mat-checkbox *ngFor="let option of inputField.options" (change)="onCheck($event, inputField.key)" [formControlName]=option.value>{{option.value}}</mat-checkbox>
+</section>

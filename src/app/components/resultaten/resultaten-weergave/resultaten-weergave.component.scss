@@ -1,0 +1,38 @@
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.display{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.block{
+    width: 10px;
+    height: 10px;
+    margin-right: 2px;
+}
+
+.circle{
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #0074D9;
+    margin-right: 2px;
+}
+
+.progress-bar{
+    height: 10px;
+    width: 100%;
+    border: solid 1px #000000;
+    border-radius: 50px;
+    background-color: var(--grey);
+
+    .progress{
+        height: 100%;
+        background-color: #0074D9;
+        border-radius: 50px;
+    }
+}

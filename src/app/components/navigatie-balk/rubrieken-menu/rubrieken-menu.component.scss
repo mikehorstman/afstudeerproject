@@ -1,0 +1,58 @@
+.rubriek-container {
+    .header {
+        height        : 32px;
+        border-bottom : #C7C7C7 solid 2px;
+
+        span {
+            font-size    : 14px;
+            padding-left : 12px;
+            font-weight  : bolder;
+
+            line-height  : 32px;
+        }
+    }
+
+    .rubriek-list {
+        min-height     : 50px;
+        background     : var(--light-grey);
+        border-radius  : 4px;
+        overflow       : hidden;
+
+        display        : flex;
+        flex-direction : column;
+        gap            : 20px;
+        padding-top     : 20px;
+        padding-bottom  : 20px;
+    }
+
+    .rubriek {
+        padding    : 16px;
+        position   : relative;
+        cursor     : move;
+        min-height : 20px;
+
+        &.disabled{
+            background-color: #F2F2F2;
+        }
+
+        .add-icon {
+            position : absolute;
+            right    : 16px;
+            top      : 16px;
+            cursor   : pointer;
+        }
+
+        .subrubriek {
+            display               : grid;
+            grid-template-columns : 2fr 1fr;
+            margin-left           : 32px;
+        }
+
+        .edit-icon {
+            height : 15px;
+            width  : 15px;
+            cursor : pointer;
+        }
+    }
+}
+

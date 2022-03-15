@@ -1,0 +1,5 @@
+<div cdkDrag (cdkDragEnded)="dropRubriek($event)" [cdkDragBoundary]="boundary"  class="list" id="rubriek-list-{{uuid}}">
+    <div class="rubriek-list" *ngFor="let rubriek of rubrieken[currentPage-1]">
+      <app-rubriek [rubriek]="rubriek"></app-rubriek>
+    </div>
+</div>

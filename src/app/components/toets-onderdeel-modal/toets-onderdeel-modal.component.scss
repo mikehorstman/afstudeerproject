@@ -1,0 +1,26 @@
+.modal-header {
+    position: relative;
+    .buttons {
+        height   : 36px;
+        position : absolute;
+        right    : 0;
+        top      : 0;
+
+        .green-button {
+            margin-right     : 8px;
+            background-color : var(--green);
+        }
+
+    }
+}
+
+mat-dialog-content{
+    overflow: hidden;
+}
+
+.gekoppelde-onderdelen{
+    margin-bottom: 60px;
+}
+
+
+

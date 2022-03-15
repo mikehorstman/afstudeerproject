@@ -1,0 +1,6 @@
+<app-rapport-onderdeel [templateRef]="template" [boundary]="boundary" [uniqueId]="this.uuid" [lockXAxis]="true"></app-rapport-onderdeel>
+
+<ng-template #template>
+    <img src="../../../../assets/images/logo.png" (click)="onSelect($event,Onderdelen.logo, this.styling)" (mousedown)="beforemove(this.uuid, Onderdelen.logo, this.styling)"
+         class="logo" id="logo-onderdeel-{{uuid}}">
+</ng-template>

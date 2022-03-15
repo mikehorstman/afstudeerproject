@@ -1,0 +1,39 @@
+<div>
+    <div [ngSwitch]="inputField.controlType">
+
+        <mat-form-field *ngSwitchCase="'textbox'" appearance="outline">
+            <mat-label class="label">{{inputField.label}}</mat-label>
+            <input [value]="value" [class]="inputField.controlType" [disabled]="inputField.disabled" matInput
+                   [id]="inputField.key" (change)="onInput($event,inputField.key)">
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'number'" appearance="outline">
+            <mat-label class="label">{{inputField.label}}</mat-label>
+            <input [value]="value" [class]="inputField.controlType" [disabled]="inputField.disabled" matInput type="number"
+                   [id]="inputField.key" (change)="onInput($event,inputField.key)">
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'dropdown'" appearance="outline">
+            <mat-label class="label">{{inputField.label}}</mat-label>
+            <mat-select [value]="value" [class]="inputField.controlType" [id]="inputField.key"
+                        [disabled]="inputField.disabled" (selectionChange)="onSelect($event, inputField.key)">
+                <mat-option *ngFor="let option of inputField.options" [value]="option.key">
+                    {{option.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="align-buttons" [style]="{'grid-template-columns': 'repeat('+inputField.options.length+ ',1fr)'}" *ngSwitchCase="'button'">
+            <div *ngFor="let option of inputField.options"
+                 (click)="onClick(option.value, inputField.key)"
+                 [class]="inputField.controlType"
+                 [ngClass]="{'selected': isSelected(value, option.value), 'left': option.key === 1, 'right': option.key === inputField.options.length }">
+                <mat-icon>vertical_align_{{option.value}}</mat-icon>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'checkbox'">
+            <app-checkbox-input (checkBoxChanged)="this.dataChanged.emit($event)" [value]="value" [inputField]="inputField"></app-checkbox-input>
+        </div>
+    </div>
+</div>
